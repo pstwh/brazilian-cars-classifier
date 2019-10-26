@@ -61,7 +61,7 @@ class App extends PureComponent {
       const options = {quality: 0.5, base64: true};
       const photo = await this.camera.takePictureAsync(options);
 
-      fetch('http://aee5a704.ngrok.io/predict', {
+      fetch('http://35.239.205.136/predict', {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -70,7 +70,6 @@ class App extends PureComponent {
       })
         .then(response => response.json())
         .then(response => {
-          console.log(response);
           if (response.predictions.length > 0) {
             const brand = response.predictions[0].brand;
             const car = response.predictions[0].car;
